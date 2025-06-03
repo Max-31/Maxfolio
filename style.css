@@ -5,7 +5,8 @@
     --textColor3: grey;
     --buttonColor: rgb(22, 22, 150);
     --buttonText: white;
-    --buttonHover: rgb(111, 111, 225);
+    /* --buttonHover: rgb(111, 111, 225); */
+    --buttonHover: #0d0d7a; /* slightly darker on hover */;
 }
 
 * {
@@ -17,41 +18,60 @@
     font-style: normal;
 }
 
-.navSec {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
 
-    padding: 1%;
+.navSec{
+  position:sticky;        
+  top:0;
+  left:0;
+  width:100%;             
+  z-index:10000;
+  
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:10px 5vw;        
+  background: var(--buttonText);
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
-.sign {
-    margin-left: 4%;
+/* logo */
+.navSec .sign img{
+  height:56px;             
+  width:auto;
 }
 
-.sign img {
-    width: 150px;
-    height: 50px;
+.maxLogo{
+    border-radius: 10px;
 }
 
-.menu {
-    display: inline-block;
-    padding: 1.5%;
-    width: 50%;
+/* menu container */ /* row wraps when viewport gets narrow         */
+.navSec .menu{
+  display:flex;
+  flex-wrap:wrap;          
+  gap:22px;
 }
 
-.menu a {
-    color: var(--textColor3);
-    text-decoration: none;
-    width: 100%;
-    margin-right: 3%;
-    font-size: 1rem;
+/* individual link */
+.navSec .subMenu{
+  font-size:1rem;
+  font-weight:600;
+  text-decoration:none;
+  color:var(--textColor3);
+  padding:6px 10px;
+  border-radius:6px;
+  transition:background .25s,color .25s;
+}
+.navSec .subMenu:hover{
+  background:#f0f0f0;
+  color:var(--buttonColor);
 }
 
-.menu a:hover {
-    /* text-decoration: underline; */
-    color: var(--textColor);
-}
+/* optional “active” state you can set via JS/scrollspy
+.navSec .subMenu.active{
+  background:var(--buttonColor);
+  color:#fff;
+} */
 
 .mainDiv {
     display: flex;
@@ -72,6 +92,7 @@
 .introText {
     font-size: 1rem;
     padding-bottom: 3%;
+    /* margin-bottom: 3%; */
     color: var(--textColor3);
 }
 
@@ -79,9 +100,11 @@
     display: list-item;
     list-style-type: "⚡";
     padding-inline-start: 1ch;
+    margin-bottom: 2%;
 }
 
-.heroButtons {
+.mainDiv .heroButtons {
+    margin-top: 2%;
     display: flex;
     justify-content: left;
 }
@@ -104,7 +127,8 @@
 }
 
 .downloadResume {
-    display: flex;
+    display: inline-flex;
+    gap: 5px; /* space between text and icon */
 }
 
 .downloadResume p {
@@ -114,6 +138,33 @@
 .downloadResume ion-icon {
     font-size: 1.5rem;
 }
+
+.downloadResumeLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* space between text and icon */
+  background-color: var(--buttonColor);
+  color:  var(--buttonText);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  /* font-weight: bold; */
+  /* font-family: sans-serif; */
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.downloadResumeLink:hover {
+  background-color: #0d0d7a; /* slightly darker on hover */
+}
+
+.downloadResumeLink ion-icon {
+    font-size: 1.5rem;
+  /* font-size: 18px;
+  color: white; */
+}
+
 
 .sideImage {
     align-content: center;
@@ -145,6 +196,11 @@
   text-align: center;
 }
 
+.mainDiv .profiles{
+    display: inline-flex;
+    width: 100%;
+}
+
 .profile-link{
     text-decoration: none;
 }
@@ -158,6 +214,45 @@
 .profiles ion-icon:hover {
     cursor: pointer;
 }
+
+.profiles .gmail {
+  margin-bottom: 5%;
+  font-size: 2.3rem;
+  margin-right: 1%;
+  width: 2.3rem;
+  height: 2.3rem;
+  cursor: pointer;
+  /* transition: transform 0.2s ease; */
+
+  /* border: solid black; */
+}
+.profiles .codechef {
+  margin-bottom: 5%;
+  font-size: 2.3rem;
+  margin-right: 1%;
+  margin-left: 0%;
+  width: 3.2rem;
+  height: 3.2rem;
+  cursor: pointer;
+  /* transition: transform 0.2s ease; */
+  
+  /* border: solid black; */
+}
+
+.leetcode{
+  margin-bottom: 5%;
+  font-size: 2.3rem;
+  margin-right: 3%;
+  margin-left: 0%;
+  width: 2.3rem;
+  height: 2.3rem;
+  cursor: pointer;
+}
+
+/* .profiles .gmail:hover {
+  transform: scale(1.1);
+} */
+
 
 #html {
     color: #E54C21;
@@ -177,6 +272,43 @@
 
 #nodejs {
     color: #529F41;
+}
+
+#mongodb{
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-top: 0%;
+    margin-bottom: 5%;
+    margin-left: 0%;
+    margin-right: 2%;
+    cursor: pointer;
+}
+
+#expressjs{
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    margin-right: 2.4%;
+    cursor: pointer;
+}
+
+#tailwind{
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    margin-right: 2.4%;
+    cursor: pointer;
+}
+
+#postman{
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    margin-right: 2.4%;
+    cursor: pointer;
 }
 
 #skillsImage img {
@@ -331,8 +463,8 @@ progress[value]::-webkit-progress-bar {
 }
 
 .bigProjects {
-    justify-content: left;
     margin-left: 7%;
+    margin-right: 4%;
     margin-bottom: 7%;
 }
 
@@ -344,7 +476,64 @@ progress[value]::-webkit-progress-bar {
 
 .projectImage {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.img {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img:hover {
+  transform: translateY(-5px);
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); */
+    box-shadow: 3px 3px 5px 3px var(--textColor2);
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.moreProjectsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8%;
+}
+
+.moreProjects {
+  margin-top: 4%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* space between text and icon */
+  background-color: var(--buttonColor); /* same blue as the reference image */
+  color: var(--buttonText);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.moreProjects:hover {
+  background-color: var(--buttonHover); /* darker blue on hover */
+}
+
+.moreProjects ion-icon {
+  font-size: 1.5rem;
+  color: var(--buttonText);
 }
 
 /* .achievement{
@@ -371,6 +560,11 @@ progress[value]::-webkit-progress-bar {
     grid-template-columns: repeat(3, 1fr);
     margin-left: 3%;
     margin-right: 3%;
+}
+
+.certImg{
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .certCard {
@@ -419,8 +613,13 @@ progress[value]::-webkit-progress-bar {
     color: var(--textColor3);
 }
 
+.achievement .moreProjects{
+    margin-top: 0.8%;
+}
+
 .blog {
     margin-bottom: 7%;
+    margin-right: 2%;
 }
 
 .blog .headingText {
@@ -508,6 +707,15 @@ progress[value]::-webkit-progress-bar {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.aboutProfileImg{
+    /* width: 320px;
+    height: 320px; */
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
 }
 
 .aboutContain {
@@ -533,10 +741,6 @@ progress[value]::-webkit-progress-bar {
     font-weight: 500;
 
     justify-content: left;
-}
-
-.gitlab {
-    color: #E54C21;
 }
 
 .aboutIcon {
