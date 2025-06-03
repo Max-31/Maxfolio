@@ -1,8 +1,11 @@
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
 function openGmailCompose() {
     const email = "nathrajarshi25@gmail.com";
-    const gmailURL = `https://mail.google.com/mail/?view=cm&to=${email}`;
+    window.open(`mailto:${email}`, "_blank");
 
-    window.open(gmailURL, "_blank");
+    // const gmailURL = `https://mail.google.com/mail/?view=cm&to=${email}`;
+    // window.open(gmailURL, "_blank");
 }
 
 function goToGithub(){

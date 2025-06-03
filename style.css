@@ -107,11 +107,12 @@
     margin-top: 2%;
     display: flex;
     justify-content: left;
+    gap: 16px;
 }
 
 .heroButtons button {
     padding: 2%;
-    margin-right: 10%;
+    margin-right: 4%;
     border-radius: 8px;
     border: none;
 
@@ -609,8 +610,13 @@ progress[value]::-webkit-progress-bar {
     text-decoration: none;
 }
 
+.certFoot a:hover{
+    text-decoration: underline var(--textColor);
+}
+
 .certFoot p {
-    color: var(--textColor3);
+    color: var(--textColor);
+    font-weight: 600;
 }
 
 .achievement .moreProjects{
